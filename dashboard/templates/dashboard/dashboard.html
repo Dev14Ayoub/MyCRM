@@ -1,0 +1,48 @@
+{% extends 'core/base.html  ' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="py-6 px-6">
+
+    <h1 class="mb-6 text-xl font-bold underline decoration-solid">Dashboard</h1>
+  
+    <div class="flex space-x-4">
+
+      <div class="flex-1 py-4 px-6 bg-gray-200 rounded-xl leads">
+        
+        <h2 class="mb-4 text-lg font-semibold">Newest leads</h2>
+
+        {% for lead in leads %}
+
+            <div class="mb-2 lead">
+                <h3 class="font-semibold">{{ lead.name }}</h3>
+                
+                <p class="text-xs">Status : {{ lead.get_status_display }}</p>
+                <p class="text-xs">Priority : {{ lead.get_priority_display }}</p>
+
+                <a href="{% url 'leads_detail' lead.pk %}" class="mb-3 underline">Details</a>
+           
+            </div>
+
+        {% endfor %}
+      </div>
+  
+      <div class="flex-1 py-4 px-6 bg-gray-200 rounded-xl clients">
+
+        <h2 class="mb-4 text-lg font-semibold">Newest clients</h2>
+
+        {% for client in clients %}
+
+            <div class="mb-2 client">
+                <h3 class="font-semibold">{{ client.name }}</h3>
+
+                <a href="{% url 'clients_detail' client.pk %}" class="mb-3 underline">Details</a>
+            </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

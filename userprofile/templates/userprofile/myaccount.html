@@ -1,0 +1,27 @@
+{% extends 'core/base.html  ' %}
+
+{% block title %}My Account{% endblock %}
+
+{% block content %}
+<div class="py-6 px-6">
+
+    <h1 class="mb-6 py-4 px-5 rounded-xl text-xl text-white font-bold underline decoration-solid bg-teal-800">My Account</h1>
+
+    <p class="mb-2">
+        <strong>Username : </strong>{{ request.user.username }}
+    </p>
+
+    <p class="mb-2">
+        <strong>Team : </strong>{{ team.name }}
+
+        {% if team.created_by == request.user %}
+            <a href="{% url 'edit_team' team.id %}" class="underline text-teal-400 hover:text-teal-800">Edit</a>
+        {% endif %}
+    </p>
+
+    <hr class="mb-4">
+
+    <a href="{% url 'logout' %}" class="inline-block py-4 px-6 bg-red-600 rounded-xl text-white font-bold transition-colors duration-300 hover:bg-red-300 hover:text-black">log Out</a>
+
+</div>
+{% endblock %}
