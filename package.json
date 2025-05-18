@@ -2,5 +2,12 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.7",
     "tailwindcss": "^4.1.7"
-  }
+  },
+
+  "scripts": {
+  "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/main.css --watch"
+}
+
+   
+
 }

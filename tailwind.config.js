@@ -8,6 +8,8 @@ module.exports = {
         'lead/templates/lead/*.html',
         'team/templates/team/*.html',
         'userprofile/templates/userprofile/*.html',
+        'appointments/templates/appointments/*.html',
+
 
 
     ],
